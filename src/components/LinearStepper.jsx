@@ -10,14 +10,13 @@ import {
   Button,
   TextField,
   Stack,
+  Container
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
-
-
+import {MultiSelectDropdown} from "./MultiSelectDropdown";
 
 function getSteps() {
   return [
@@ -28,30 +27,51 @@ function getSteps() {
   ];
 }
 
+const InputContainer = (props) => {
+  return (
+    <div className={classes.InputContainer}>
+      {props.label && (
+        <label className={classes.containerLabel} htmlFor='input-field'>
+          {props.label}
+        </label>
+      )}
+      <input
+        className={classes.ContainerInput}
+        type={props.type}
+        placeholder={props.placeholder}
+        value={props.value}
+      />
+    </div>
+  );
+};
+
 const BasicConfig = ({ formik }) => {
   return (
     <div className={classes.basicSection}>
-      {/* <input className={[classes.input,classes.fullWidth].join(" ")} placeholder="Project Name" type="text" /> */}
-      <TextField 
+      <TextField
         placeholder='Project Name'
         name='projectName'
         value={formik.values.projectName}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         type='text'
-        className={[classes.input, classes.fullWidth,classes.marginM].join(" ")}
+        className={[classes.input, classes.fullWidth, classes.marginM].join(
+          " "
+        )}
       />
       <Stack
         direction={{ xs: "row", sm: "row" }}
         spacing={{ xs: 2, sm: 2, md: 2 }}
         justifyContent='space-between'>
-          <Button
+        <Button
           endIcon={<FileUploadIcon />}
-        className={[classes.input, classes.halfWidth,classes.normalBtn].join(" ")}
-        component='label'>
-        Project Logo (png)
-        <input  accept='image/png' type='file' hidden />
-      </Button>
+          className={[classes.input, classes.halfWidth, classes.normalBtn].join(
+            " "
+          )}
+          component='label'>
+          Project Logo (png)
+          <input accept='image/png' type='file' hidden />
+        </Button>
         <TextField
           placeholder='URL Slug'
           type='text'
@@ -59,18 +79,26 @@ const BasicConfig = ({ formik }) => {
           value={formik.values.url}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          className={[classes.input, classes.halfWidth,classes.marginM].join(" ")}
+          className={[classes.input, classes.halfWidth, classes.marginM].join(
+            " "
+          )}
         />
       </Stack>
       <Button
-        variant="text"
+        variant='text'
         endIcon={<FileUploadIcon />}
-        className={[classes.input, classes.fullWidth,classes.marginM,classes.normalBtn].join(" ")}
+        className={[
+          classes.input,
+          classes.fullWidth,
+          classes.marginM,
+          classes.normalBtn,
+        ].join(" ")}
         component='label'>
         Upload background image (1920 x1080)
-        <input  accept='image/*' type='file' hidden />
+        <input accept='image/*' type='file' hidden />
       </Button>
-      <Stack style={{margin:"0"}}
+      <Stack
+        style={{ margin: "0" }}
         direction={{ xs: "row", sm: "row" }}
         spacing={{ xs: 2, sm: 2, md: 2 }}
         justifyContent='space-between'>
@@ -81,7 +109,9 @@ const BasicConfig = ({ formik }) => {
           value={formik.values.primaryColor}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          className={[classes.input, classes.halfWidth, classes.marginM].join(" ")}
+          className={[classes.input, classes.halfWidth, classes.marginM].join(
+            " "
+          )}
         />
         <TextField
           placeholder='
@@ -91,10 +121,12 @@ const BasicConfig = ({ formik }) => {
           value={formik.values.secondaryColor}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          className={[classes.input, classes.halfWidth,classes.marginM ].join(" ")}
+          className={[classes.input, classes.halfWidth, classes.marginM].join(
+            " "
+          )}
         />
       </Stack>
-       <Stack
+      <Stack
         direction={{ xs: "row", sm: "row" }}
         spacing={{ xs: 2, sm: 2, md: 2 }}
         justifyContent='space-between'>
@@ -120,15 +152,15 @@ const BasicConfig = ({ formik }) => {
       </Stack>
       <hr></hr>
       <TextField
-          placeholder='Address of ERC-721 contract'
-          type='text'
-          name='addressERC'
-          value={formik.values.addressERC}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          className={[classes.input, classes.fullWidth].join(" ")}
-        />
-           <Stack
+        placeholder='Address of ERC-721 contract'
+        type='text'
+        name='address'
+        value={formik.values.address}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        className={[classes.input, classes.fullWidth].join(" ")}
+      />
+      <Stack
         direction={{ xs: "row", sm: "row" }}
         spacing={{ xs: 2, sm: 2, md: 2 }}
         justifyContent='space-between'>
@@ -139,7 +171,9 @@ const BasicConfig = ({ formik }) => {
           value={formik.values.ERCtoken}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          className={[classes.input, classes.halfWidth, classes.marginM].join(" ")}
+          className={[classes.input, classes.halfWidth, classes.marginM].join(
+            " "
+          )}
         />
         <TextField
           placeholder='ERC Symbol'
@@ -156,7 +190,44 @@ const BasicConfig = ({ formik }) => {
 };
 
 const YieldBonus = () => {
-  return <h1>Yield configuration</h1>;
+  return <Container>
+    <p>Select Trait(s)</p>
+    <MultiSelectDropdown />
+    <div className={classes.tokenIdSection}>
+          <h2>Yield by token IDs</h2>
+          <div className={classes.tokenContainer}>
+            <InputContainer type='number' placeholder='10000' />
+            <InputContainer type='text' label='per' placeholder='Day' />
+            <InputContainer
+              type='number'
+              label='for Token IDs'
+              placeholder='10000'
+            />
+            <InputContainer type='number' label='To' placeholder='10000' />
+            <button className={classes.addButton}>+Add Range</button>
+          </div>
+        </div>
+        <div className={classes.bonusSection}>
+          <h2>Multi-holder Bonus</h2>
+          <div className={classes.tokenContainer}>
+            <InputContainer type='number' label='Holds' placeholder='10000' />
+            <InputContainer type='number' label='%Bonus' placeholder='99' />
+            <button className={classes.addButton}>+Add Range</button>
+          </div>
+        </div>
+        <div className={classes.LockbonusSection}>
+          <h2>Lock Bonus</h2>
+          <div className={classes.tokenContainer}>
+            <InputContainer
+              type='number'
+              label='Lock period'
+              placeholder='10000'
+            />
+            <InputContainer type='number' label='%Bonus' placeholder='99' />
+            <button className={classes.addButton}>+Add Range</button>
+          </div>
+        </div>
+  </Container>;
 };
 
 const UnstakeConfig = () => {
@@ -184,15 +255,28 @@ function getStepContent(step, formikProps) {
 }
 
 export const LinearStepper = () => {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(1);
   const steps = getSteps();
 
   const useStyles = makeStyles(() => ({
     root: {
-      "& .MuiStepIcon-active": { color: "#FFA908" },
-      "& .MuiStepIcon-completed": { color: "#FFA908" },
-      "& .Mui-disabled .MuiStepIcon-root": { color: "#FFA908" }
-    }
+      text: { color: "#000" },
+      "& .MuiStepIcon-text": { fill: "#000" },
+      "& .Mui-active .MuiStepIcon-text": { fill: "#fff" },
+      "& .MuiStepConnector-line": {
+        borderColor: "#FDAFAF",
+        borderTopStyle: "dashed",
+        borderTopWidth: "2px",
+      },
+      "& .MuiStepLabel-alternativeLabel":{color:"#fff",fontSize:"20px"},
+      "& .MuiStepLabel-alternativeLabel.Mui-active":{color:"#FFA908",fontSize:"20px"},
+      "& .MuiSvgIcon-root.Mui-active":{ color:"#FFA908"} ,
+      "& .MuiSvgIcon-root":{ color:"#fff"},
+
+    },
+    text: {
+      color: "red",
+    },
   }));
   const c = useStyles();
   let arrOfInitialStates = [
@@ -207,7 +291,7 @@ export const LinearStepper = () => {
       ERCtoken: "",
       ERCsymbol: "",
     },
-   {
+    {
       primaryColor: "",
       secondaryColor: "",
       // TertiaryColor: "",
@@ -220,21 +304,28 @@ export const LinearStepper = () => {
 
   let arrOfValidationSchema = [
     Yup.object({
-      projectName: Yup.string().required(),
-      url: Yup.string().required(),
+      projectName: Yup.string().required("Required"),
+      url: Yup.string().required("Required"),
+      primaryColor: Yup.string().required("Required"),
+      secondaryColor:Yup.string().required("Required"),
+      tertiaryColor:Yup.string().required("Required"),
+      quaternaryColor:Yup.string().required("Required"),
+      address: Yup.string().required("Required"),
+      ERCtoken: Yup.number().required("ERC token required"),
+      ERCsymbol: Yup.string().required("Required")
     }),
   ];
 
-  console.log(arrOfInitialStates[activeStep],"state",activeStep)
+  console.log(arrOfInitialStates[activeStep], "state", activeStep);
   const formik = useFormik({
     initialValues: arrOfInitialStates[activeStep],
     enableReinitialize: true,
     validationSchema: arrOfValidationSchema[activeStep],
-    onSubmit: (values,isSubmitting) => {
-      console.log(values,"isSubmitting",isSubmitting);
+    onSubmit: (values, isSubmitting) => {
+      console.log(values, "isSubmitting", isSubmitting);
       console.log(JSON.stringify(values, null, 2));
       const steps = getSteps();
-    if (activeStep < steps.length) setActiveStep(activeStep + 1);
+      if (activeStep < steps.length) setActiveStep(activeStep + 1);
     },
   });
 
@@ -255,7 +346,7 @@ export const LinearStepper = () => {
         {steps.map((step, index) => {
           return (
             <Step key={index}>
-              <StepLabel>{step}</StepLabel>
+              <StepLabel className={c.text}>{step}</StepLabel>
             </Step>
           );
         })}
@@ -276,11 +367,11 @@ export const LinearStepper = () => {
             {getStepContent(activeStep, formik)}
 
             <Button
-             className={classes.nextButton}
+              className={classes.nextButton}
               variant='text'
               disabled={activeStep === 0}
-              onClick={handleBack} type="reset">
-                
+              onClick={handleBack}
+              type='reset'>
               back
             </Button>
             <Button

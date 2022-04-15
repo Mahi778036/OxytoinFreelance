@@ -46,9 +46,7 @@ hr{
     border-top: 0;
     border: 1px solid #FF79E0;
 }
-.marginM{
-    /* margin:0 0; */
-}
+
 .normalBtn{
     display: flex;
     justify-content: space-between;
@@ -111,7 +109,7 @@ hr{
 
 
 
-/* .formSection{
+.formSection{
     border-radius: 18px;
     backdrop-filter: blur(50px);
     width: 75%;
@@ -119,7 +117,7 @@ hr{
     padding: 20px 100px 130px 100px;
     height: max-content;
 }
-.formSection h2{
+ h2{
     color: #FFFFFF;
     font-size: 28px;
     font-weight: bold;
@@ -210,8 +208,8 @@ padding: 15px 5px;
     width: 100px !important;
 }
 .addButton{
-    /* background-image: linear-gradient(to right,#7A1C8D,#3B0460) ; */
-    /* background: transparent linear-gradient(104deg, #7A1C8D 0%, #3B0460 100%) 0% 0% no-repeat padding-box;
+     background-image: linear-gradient(to right,#7A1C8D,#3B0460) ; 
+    background: transparent linear-gradient(104deg, #7A1C8D 0%, #3B0460 100%) 0% 0% no-repeat padding-box;
     border: 1px solid #FF79E0;
     border-radius: 20px;
     font-size: 16px;
@@ -220,14 +218,3 @@ padding: 15px 5px;
 .LockbonusSection{
     position: relative;
 }
-.submitButton{
-    background: transparent linear-gradient(180deg, #FFA908 0%, #7B0480 100%) 0% 0% no-repeat padding-box;
-    border-radius: 37px;
-    color: #FFFFFF;
-    font-size: 26px;
-    border: none;
-    padding: 9px 32px;
-    position: absolute;
-    bottom: 4%;
-    right: 10%;
-} */ 
