@@ -1,0 +1,46 @@
+.headerSection{
+    padding: 7px 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerTitle{
+    width: 158px;
+    height: 107px;
+}
+.logo{
+    width: 100%;
+}
+.userInfo{
+    background-color: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+}
+.circle{
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    background-color: orange;
+}
+.id{
+    padding: 10px;
+    color: #363840;
+    font-size: 23px;
+}
+.mainTextContainer {
+    text-align: center;
+}
+.mainTextContainer h1 {
+    color: #FFFFFF;
+    font-size: 120px;
+}
+.mainTextContainer p {
+    color: #FFFFFF;
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
