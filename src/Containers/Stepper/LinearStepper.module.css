@@ -1,4 +1,6 @@
-
+.stepperSection{
+    margin: 30px 0;
+}
 form {
     width: 80%;
     margin: 20px auto;
