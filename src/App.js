@@ -2,7 +2,7 @@
 
 import "./App.css";
 import { Header } from "./components/Header";
-import { LinearStepper } from "./components/LinearStepper";
+import { LinearStepper } from "./Containers/Stepper/LinearStepper";
 import { Footer } from "./components/Footer";
 import { StyledEngineProvider } from "@mui/material";
 

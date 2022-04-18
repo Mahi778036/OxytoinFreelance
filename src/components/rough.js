@@ -33,6 +33,14 @@ const Input = (props) => {
   );
 };
 
+// "& .MuiStepIcon-root": { color: "#fff" },
+// "& .MuiStepIcon-root.Mui-active": { color: "#FFA908" },
+// "& .MuiStepIcon-text":{ fill:"#000"},
+// "&. MuiSvgIcon-root" : {color:"#fff"},
+// "& .MuiStepConnector-line": {border: "2px dashed #FDAFAF", borderTop:"0"},
+// "& .MuiStepLabel-label.Mui-active":{color:"#FFA908"},
+// "& .MuiStepLabel-label":{color:"#fff",fontSize:"20px"},
+
 const InputContainer = (props) => {
   return (
     <div className={classes.InputContainer}>

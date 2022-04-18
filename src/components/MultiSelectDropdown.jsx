@@ -17,6 +17,7 @@ export const MultiSelectDropdown = () => {
     }
     const data = [{property:"Background",id:1},{property:"Hat",id:2},{property:"Eyes",id:3}];
     const [options] = useState(data);
+    console.log(options)
   return (
     <div >
         <Multiselect className={styles.multiSelectContainer} options={options} displayValue="property" label="traits" />
