@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: 5px;
 }
 .headerTitle{
     width: 158px;
@@ -43,4 +44,8 @@
     font-size: 22px;
     line-height: 1.5;
     letter-spacing: 0.5px;
+}
+.diamondImg{
+    height: 30px;
+    width: 20px;
 }

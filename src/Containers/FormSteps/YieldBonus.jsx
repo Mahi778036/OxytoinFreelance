@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "../Stepper/LinearStepper.module.css";
 
 
@@ -26,12 +26,21 @@ const InputContainer = (props) => {
 };
 
 export const YieldBonus = ({ formik }) => {
-  console.log(formik);
+  useEffect(() => {
+    let arr = Object.keys(formik.errors);
+    console.log(arr);
+     if(formik.errors && formik.isSubmitting){
+    console.log("eroor")
+    alert("Please fill all the details");
+  }
+  },[formik.isSubmitting])
+ 
   return (
     <div>
       <div className={classes.MultiSelectDropdown}>
         <h2>Yield by traits</h2>
         <p>Select Trait(s)</p>
+        {/* {multi-select-dropdown} */}
       </div>
       <div className={classes.tokenIdSection}>
         <h2>Yield by token IDs</h2>

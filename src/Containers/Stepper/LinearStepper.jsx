@@ -8,6 +8,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { BasicConfig } from "../FormSteps/BasicConfig";
 import { YieldBonus } from "../FormSteps/YieldBonus";
+import { UnstakeConfig} from '../FormSteps/UnstakeConfig';
+import { ClaimConfig} from '../FormSteps/ClaimConfig';
 
 function getSteps() {
   return [
@@ -18,13 +20,6 @@ function getSteps() {
   ];
 }
 
-const UnstakeConfig = () => {
-  return <h1>Untake configuration</h1>;
-};
-
-const ClaimConfig = () => {
-  return <h1>Claim configuration</h1>;
-};
 
 function getStepContent(step, formikProps) {
   console.log(formikProps, "formik");
@@ -34,7 +29,7 @@ function getStepContent(step, formikProps) {
     case 1:
       return <YieldBonus formik={formikProps} />;
     case 2:
-      return <UnstakeConfig />;
+      return <UnstakeConfig formik={formikProps} />;
     case 3:
       return <ClaimConfig />;
     default:
@@ -53,7 +48,7 @@ export const LinearStepper = () => {
       "& .MuiStepIcon-text": { fill: "#000" },
       "&. MuiSvgIcon-root": { color: "#fff" },
       "& .MuiStepConnector-line": {
-        border: "2px dashed #FDAFAF",
+        border: "2px dotted #FDAFAF",
         borderTop: "0",
       },
       "& .MuiStepLabel-label.Mui-active": { color: "#FFA908" },

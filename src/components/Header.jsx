@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Header.module.css';
 import titleImg from '../assets/titleImg.png'
+import diamond from '../assets/diamond.png';
 
 export const Header = () => {
   return (
@@ -11,6 +12,7 @@ export const Header = () => {
       </figure>
       <div className={classes.userInfo}>
           <div className={classes.circle}></div>
+          <img src={diamond} alt="header_logo" className={classes.diamondImg} />
           <div className={classes.id}>
               0x2ec……….…..9bb6
           </div>

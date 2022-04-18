@@ -63,6 +63,7 @@ hr {
     outline: none;
 }
 
+
 .MultiSelectDropdown p{
     color: #fff;
     font-size: 18px;
@@ -139,5 +140,10 @@ hr {
 .error{
     color: red;
     font-size: 18px;
-    margin: -5px 0px;
+    margin: 5px 0px;
+}
+.flexContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
 }
