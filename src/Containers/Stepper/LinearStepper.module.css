@@ -103,13 +103,6 @@ hr {
     display: flex;
     align-items: center;
 }
-/* .InputContainer:first-child * {
-    min-width: 85px;
-}
-.InputContainer:first-child input{
-    width: 200px;
-    flex-grow: 1 !important;
-} */
 .ContainerInput{
     font-size: 14px;
     background: #EFD9DC 0% 0% no-repeat padding-box;

@@ -1,7 +1,9 @@
 /** @format */
 
 import React, { useEffect } from "react";
+import { MuiDropdown } from "../../components/MuiDropdown";
 import classes from "../Stepper/LinearStepper.module.css";
+
 
 
 const InputContainer = (props) => {
@@ -38,7 +40,7 @@ export const YieldBonus = ({ formik }) => {
       <div className={classes.MultiSelectDropdown}>
         <h2>Yield by traits</h2>
         <p>Select Trait(s)</p>
-        {/* {multi-select-dropdown} */}
+        <MuiDropdown />
       </div>
       <div className={classes.tokenIdSection}>
         <h2>Yield by token IDs</h2>
