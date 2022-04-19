@@ -27,13 +27,11 @@ const InputContainer = (props) => {
 
 export const YieldBonus = ({ formik }) => {
   useEffect(() => {
-    let arr = Object.keys(formik.errors);
-    console.log(arr);
-     if(formik.errors && formik.isSubmitting){
+     if(Object.keys(formik.errors).length > 0 && formik.isSubmitting){
     console.log("eroor")
     alert("Please fill all the details");
   }
-  },[formik.isSubmitting])
+  },[formik.isSubmitting,formik.errors])
  
   return (
     <div>
