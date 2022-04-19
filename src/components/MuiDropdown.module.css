@@ -8,3 +8,28 @@
 .traitInput:hover,.traitInput:focus,.traitInput:active{
     outline: none;
 }
+.dropdownItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+    background-color: rgba(0,0, 0 , 0.2);
+    backdrop-filter: blur(50px);
+    height: 80px;
+    padding: 0 10px;
+}
+
+.dropdownItem input{
+        font-size: 14px;
+        background: #EFD9DC 0% 0% no-repeat padding-box;
+        box-shadow: inset 0px 3px 6px #00000029;
+        border: 1px solid #8B0707;
+        border-radius: 6px;
+        padding: 15px 5px;
+        margin-left: 10px;
+        width: 100px;
+}
+.dropdownItem label{
+    color: #fff;
+    font-size: 18px;
+}

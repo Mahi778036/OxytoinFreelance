@@ -1,40 +1,18 @@
 /** @format */
-
 import React, { useEffect } from "react";
 import { MuiDropdown } from "../../components/MuiDropdown";
 import classes from "../Stepper/LinearStepper.module.css";
+import { InputContainer } from "../../components/InputContainer";
 
-
-
-const InputContainer = (props) => {
-  return (
-    <div className={classes.InputContainer}>
-      {props.label && (
-        <label className={classes.containerLabel} htmlFor='input-field'>
-          {props.label}
-        </label>
-      )}
-      <input
-        className={classes.ContainerInput}
-        type={props.type}
-        placeholder={props.placeholder}
-        value={props.value}
-        name={props.name}
-        onChange={props.onChange}
-        onBlur={props.onBlur}
-      />
-    </div>
-  );
-};
 
 export const YieldBonus = ({ formik }) => {
   useEffect(() => {
-     if(Object.keys(formik.errors).length > 0 && formik.isSubmitting){
-    console.log("eroor")
-    alert("Please fill all the details");
-  }
-  },[formik.isSubmitting,formik.errors])
- 
+    if (Object.keys(formik.errors).length > 0 && formik.isSubmitting) {
+      console.log("eroor");
+      alert("Please fill all the details");
+    }
+  }, [formik.isSubmitting, formik.errors]);
+
   return (
     <div>
       <div className={classes.MultiSelectDropdown}>
@@ -49,9 +27,9 @@ export const YieldBonus = ({ formik }) => {
           <InputContainer
             type='text'
             name='per'
-             value={formik.values.per}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+            value={formik.values.per}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             label='per'
             placeholder='Day'
           />
@@ -73,7 +51,9 @@ export const YieldBonus = ({ formik }) => {
             label='To'
             placeholder='10000'
           />
-          <button className={classes.addButton}>+Add Range</button>
+          <button type='button' className={classes.addButton}>
+            +Add Range
+          </button>
         </div>
       </div>
       <div className={classes.bonusSection}>
@@ -97,7 +77,9 @@ export const YieldBonus = ({ formik }) => {
             label='%Bonus'
             placeholder='99'
           />
-          <button className={classes.addButton}>+Add Range</button>
+          <button type='button' className={classes.addButton}>
+            +Add Range
+          </button>
         </div>
       </div>
       <div className={classes.LockbonusSection}>
@@ -121,7 +103,9 @@ export const YieldBonus = ({ formik }) => {
             label='%Bonus'
             placeholder='99'
           />
-          <button className={classes.addButton}>+Add Range</button>
+          <button type='button' className={classes.addButton}>
+            +Add Range
+          </button>
         </div>
       </div>
     </div>
