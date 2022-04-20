@@ -18,7 +18,7 @@ export const YieldBonus = ({ formik }) => {
       <div className={classes.MultiSelectDropdown}>
         <h2>Yield by traits</h2>
         <p>Select Trait(s)</p>
-        <MuiDropdown />
+        <MuiDropdown  />
       </div>
       <div className={classes.tokenIdSection}>
         <h2>Yield by token IDs</h2>

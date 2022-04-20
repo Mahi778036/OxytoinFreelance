@@ -1,6 +1,5 @@
 /** @format */
-
-import * as React from "react";
+import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -8,8 +7,9 @@ import { makeStyles } from "@mui/styles";
 import classes from "./MuiDropdown.module.css";
 
 export const MuiDropdown = () => {
+  const [array, setArray] = useState(top100Films);
 
-    const useStyles = makeStyles(() => ({
+  const useStyles = makeStyles(() => ({
     root: {
       "& .MuiAutocomplete-root.css-16awh2u-MuiAutocomplete-root": {
         margin: "auto 0",
@@ -26,97 +26,79 @@ export const MuiDropdown = () => {
     },
   }));
 
-
-
   const c = useStyles();
 
 
-  
+  console.log(array, "arr");
 
-  const DropdownItem = (props) => {
-    if(props.label){
-    return (
-      <div className={classes.dropdownItem}>
-        <label>{props.label}</label>
-        <Autocomplete
-          className={c.root}
-          multiple
-          limitTags={3}
-          id='multiple-limit-tags'
-          options={colors}
-          getOptionLabel={(option) => option.name}
-          defaultValue={[colors[0], colors[1], colors[2]]}
-          renderInput={(params) => {
-            console.log(params.InputProps.startAdornment);
-            let arr = params.InputProps.startAdornment;
-            console.log(arr, "arrr");
-            return (
+  return (
+    <div>
+      <Autocomplete
+        onChange={(event, value) => {
+          setArray(value);
+        }}
+        className={c.root}
+        multiple
+        limitTags={3}
+        id='multiple-limit-tags'
+        options={top100Films}
+        getOptionLabel={(option) => option.title}
+        defaultValue={[top100Films[0], top100Films[1], top100Films[2]]}
+        renderInput={(params) => {
+          return (
+            <div>
               <TextField
                 className={classes.traitInput}
                 {...params}
-                placeholder='Type Value'
+                placeholder='Type Trait'
               />
-              /* <Stack>
-              {arr.map((element) => {
-                  console.log(element)
-               return <div><TextField  /></div>;
-              })}
-            </Stack> */
-            );
-          }}
-        />
-        <label>to be paid</label>
-        <input type="number" placeholder="1000" />
-        <label>per</label>
-        <input type="text" placeholder="Day" />
-      </div>
-    );
-  }else{
-  return <div></div>
-}
-}
-
-  return (
-    <Autocomplete
-      className={c.root}
-      multiple
-      limitTags={3}
-      id='multiple-limit-tags'
-      options={top100Films}
-      getOptionLabel={(option) => option.title}
-      defaultValue={[top100Films[0], top100Films[1], top100Films[2]]}
-      renderInput={(params) => {
-        console.log(params.InputProps.startAdornment);
-        let arr = params.InputProps.startAdornment;
-        console.log(arr, "arrr");
+            </div>
+          );
+        }}
+      />
+      {array.map((e) => {
         return (
-          <div>
-            <TextField
-              className={classes.traitInput}
-              {...params}
-              placeholder='Type Trait'
-            />
-            {/* <Stack>
-              {arr.map((element) => {
-                console.log(element);
+          <div className={classes.dropdownItem}>
+            <label>{e.title}</label>
+            <Autocomplete
+              className={c.root}
+              multiple
+              limitTags={3}
+              id='multiple-limit-tags'
+              options={colors}
+              getOptionLabel={(option) => option.name}
+              defaultValue={[colors[0], colors[1]]}
+              renderInput={(params) => {
+                console.log(params.InputProps.startAdornment);
+                let arr = params.InputProps.startAdornment;
+                console.log(arr, "arrr");
                 return (
-                  <div className={classes.traits}>
-                <DropdownItem label={element.props.label} />
-                </div>
+                  <TextField
+                    className={classes.traitInput}
+                    {...params}
+                    placeholder='Type Value'
+                  />
                 );
-              })}
-            </Stack> */}
+              }}
+            />
+            <label>to be paid</label>
+            <input className={classes.input} type='number' placeholder='1000' />
+            <label>per</label>
+            <input  className={classes.input} type='text' placeholder='Day' />
           </div>
         );
-      }}
-    />
+      })}
+    </div>
   );
 };
 
 const top100Films = [
-  { title: "Background", year: 2009 },
-  { title: "Hat", year: 2000 },
-  { title: "Eyes", year: 2009 },
+  { title: "Background", id: 1 },
+  { title: "Hat", id: 2 },
+  { title: "Eyes", id: 3 },
 ];
-const colors = [{ name: "orange" }, { name: "red" }, { name: "black" }];
 
+const colors = [
+  {name:"orange",id:1},
+  {name:"black",id:2}
+]

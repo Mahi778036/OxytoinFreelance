@@ -9,8 +9,9 @@
     outline: none;
 }
 .dropdownItem{
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 10% 1fr 10% 10% 10% 5% 5%;
+    align-content: center;
     justify-content: space-between;
     margin: 5px 0;
     background-color: rgba(0,0, 0 , 0.2);
@@ -19,7 +20,7 @@
     padding: 0 10px;
 }
 
-.dropdownItem input{
+.dropdownItem .input{
         font-size: 14px;
         background: #EFD9DC 0% 0% no-repeat padding-box;
         box-shadow: inset 0px 3px 6px #00000029;
