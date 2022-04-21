@@ -9,10 +9,9 @@
     outline: none;
 }
 .dropdownItem{
-    display: grid;
-    grid-template-columns: 10% 1fr 10% 10% 10% 5% 5%;
-    align-content: center;
-    justify-content: space-between;
+    display: flex;
+    align-items: center;
+
     margin: 5px 0;
     background-color: rgba(0,0, 0 , 0.2);
     backdrop-filter: blur(50px);
@@ -33,4 +32,8 @@
 .dropdownItem label{
     color: #fff;
     font-size: 18px;
+    flex-basis: 100px;
+}
+.autocomplete{
+    flex: 1;
 }

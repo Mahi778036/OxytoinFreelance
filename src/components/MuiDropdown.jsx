@@ -5,6 +5,10 @@ import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import { makeStyles } from "@mui/styles";
 import classes from "./MuiDropdown.module.css";
+import { InputContainer } from "./InputContainer";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import InputAdornment from '@mui/material/InputAdornment';
+
 
 export const MuiDropdown = () => {
   const [array, setArray] = useState(top100Films);
@@ -28,16 +32,15 @@ export const MuiDropdown = () => {
 
   const c = useStyles();
 
-
   console.log(array, "arr");
 
   return (
     <div>
       <Autocomplete
+        className={c.root}
         onChange={(event, value) => {
           setArray(value);
         }}
-        className={c.root}
         multiple
         limitTags={3}
         id='multiple-limit-tags'
@@ -56,12 +59,15 @@ export const MuiDropdown = () => {
           );
         }}
       />
-      {array.map((e) => {
+      {array.map((e, i) => {
         return (
-          <div className={classes.dropdownItem}>
+          <div key={i} className={classes.dropdownItem}>
             <label>{e.title}</label>
             <Autocomplete
-              className={c.root}
+              className={[c.root, classes.autocomplete].join(" ")}
+              disableClearable
+              freeSolo={false}
+              popupIcon={""}
               multiple
               limitTags={3}
               id='multiple-limit-tags'
@@ -81,11 +87,24 @@ export const MuiDropdown = () => {
                 );
               }}
             />
-            <label>to be paid</label>
-            <input className={classes.input} type='number' placeholder='1000' />
-            <label>per</label>
-            <input  className={classes.input} type='text' placeholder='Day' />
-          </div>
+            <InputContainer
+              label='is to be paid'
+              placeholder='1000'
+              type='number'
+            />
+            <InputContainer label='per' placeholder='Day' type='number' />
+            {/* <label>to be paid</label>
+            <input className={classes.input} type='number' placeholder='1000' />  */}
+             {/* <label>per</label>
+             <TextField placeholder="Day" className={classes.traitInput} InputProps={{
+              startAdornment: (
+            <InputAdornment position="end">
+              <ArrowDropDownIcon />
+            </InputAdornment> */}
+          {/* ),
+        }}
+      /> */}
+        </div>
         );
       })}
     </div>
@@ -99,6 +118,6 @@ const top100Films = [
 ];
 
 const colors = [
-  {name:"orange",id:1},
-  {name:"black",id:2}
-]
+  { name: "orange", id: 1 },
+  { name: "black", id: 2 },
+];

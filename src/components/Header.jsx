@@ -5,6 +5,7 @@ import diamond from '../assets/diamond.png';
 
 export const Header = () => {
   return (
+    
     <>
     <div className={classes.headerSection}>
       <figure className={classes.headerTitle}>

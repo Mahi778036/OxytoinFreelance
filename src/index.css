@@ -3,3 +3,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  font-family: var(--font--FuturaBook);
+}
+
+@font-face {
+  font-family: Punta;
+  src: url(./Fonts/Punta.otf);
+}
+
+@font-face {
+  font-family: Futura;
+  src: url(./Fonts/futur.ttf);
+}
+@font-face {
+  font-family: Futura;
+  src: url(./Fonts/FuturaBook.ttf);
+}
+
+:root{
+  --font--Punta: Punta;
+  --font--Futura: Futura;
+  --font--FuturaBook:FuturaBook
+}

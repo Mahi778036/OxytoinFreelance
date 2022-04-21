@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import classes from "../Stepper/LinearStepper.module.css";
+import classes from './FormSteps.module.css';
 import { Button, TextField, Stack } from "@mui/material";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 
@@ -46,7 +46,7 @@ export const BasicConfig = ({ formik }) => {
         </div>
       </div>
       <Button
-        variant='text'
+        variant='contained'
         endIcon={<FileUploadIcon />}
         className={[
           classes.input,

@@ -7,7 +7,6 @@
 }
 .headerTitle{
     width: 158px;
-    height: 107px;
 }
 .logo{
     width: 100%;
@@ -31,6 +30,7 @@
     padding: 10px;
     color: #363840;
     font-size: 23px;
+    font-family: var(--funta--FuturaBook);
 }
 .mainTextContainer {
     text-align: center;
@@ -38,14 +38,42 @@
 .mainTextContainer h1 {
     color: #FFFFFF;
     font-size: 120px;
+    font-family: var(--font--Punta);
+    letter-spacing: 2px;
 }
 .mainTextContainer p {
     color: #FFFFFF;
     font-size: 22px;
     line-height: 1.5;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 .diamondImg{
     height: 30px;
     width: 20px;
+}
+
+/* media queries */
+
+@media only screen and (max-width:427px){
+    .mainTextContainer h1 {
+        font-size: 60px;
+    }
+    .mainTextContainer p {
+        font-size: 14px;
+    }
+    .headerSection {
+       padding: 10px;
+    }
+    .id {
+        padding: 5px;
+        color: #363840;
+        font-size: 12px;
+    }
+    .circle{
+        height: 30px;
+        width: 30px;
+    }
+    .logo {
+        width: 60%;
+    }
 }

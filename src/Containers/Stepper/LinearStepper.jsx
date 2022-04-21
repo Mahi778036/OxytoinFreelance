@@ -1,5 +1,4 @@
 /** @format */
-
 import * as React from "react";
 import classes from "./LinearStepper.module.css";
 import { Stepper, Step, StepLabel, Typography, Button } from "@mui/material";
@@ -10,6 +9,7 @@ import { BasicConfig } from "../FormSteps/BasicConfig";
 import { YieldBonus } from "../FormSteps/YieldBonus";
 import { UnstakeConfig} from '../FormSteps/UnstakeConfig';
 import { ClaimConfig} from '../FormSteps/ClaimConfig';
+
 
 function getSteps() {
   return [
@@ -38,21 +38,27 @@ function getStepContent(step, formikProps) {
 }
 
 export const LinearStepper = () => {
+    const handleReset = () => {
+    setActiveStep(0);
+    
+  };
   const [activeStep, setActiveStep] = React.useState(1);
   const steps = getSteps();
 
-  const useStyles = makeStyles(() => ({
+  const useStyles = makeStyles((theme) => ({
     root: {
       "& .MuiStepIcon-root": { color: "#fff" },
       "& .MuiStepIcon-root.Mui-active": { color: "#FFA908" },
-      "& .MuiStepIcon-text": { fill: "#000" },
-      "&. MuiSvgIcon-root": { color: "#fff" },
+      "& .MuiStepIcon-text": { fill: "#000",fontWeight:"bold",fontFamily:"var(--font--Punta)" },
+       "& .MuiStepIcon-root.Mui-active .MuiStepIcon-text": { fill: "#fff",fontWeight:"bold" },
       "& .MuiStepConnector-line": {
         border: "2px dotted #FDAFAF",
         borderTop: "0",
       },
       "& .MuiStepLabel-label.Mui-active": { color: "#FFA908" },
-      "& .MuiStepLabel-label": { color: "#fff", fontSize: "20px" },
+      "& .MuiStepLabel-label": { color: "#fff", fontSize: "20px"},
+    
+      
     },
   }));
   const c = useStyles();
@@ -107,7 +113,6 @@ export const LinearStepper = () => {
     })
   ];
 
-  console.log(arrOfInitialStates[activeStep], "state", activeStep);
   const formik = useFormik({
     initialValues: arrOfInitialStates[activeStep],
     enableReinitialize: true,
@@ -123,17 +128,12 @@ export const LinearStepper = () => {
   const handleBack = () => {
     if (activeStep > 0) setActiveStep(activeStep - 1);
   };
-  // const handleNext = () => {
-  //   const steps = getSteps();
-  //   if (activeStep < steps.length) setActiveStep(activeStep + 1);
-  // };
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+
+
 
   return (
     <div className={classes.stepperSection}>
-      <Stepper className={c.root} alternativeLabel activeStep={activeStep}>
+      <Stepper nonLinear className={c.root} alternativeLabel activeStep={activeStep}>
         {steps.map((step, index) => {
           return (
             <Step key={index}>
@@ -156,20 +156,18 @@ export const LinearStepper = () => {
         <div className={classes.Formcontainer}>
           <form onSubmit={formik.handleSubmit}>
             {getStepContent(activeStep, formik)}
-
             <Button
               className={classes.backButton}
               variant='text'
               disabled={activeStep === 0}
               onClick={handleBack}
               type='reset'>
-              back
+              Back
             </Button>
             <Button
               className={classes.nextButton}
               variant='contained'
               color='primary'
-              // onClick={handleNext}
               type='submit'>
               Next
             </Button>

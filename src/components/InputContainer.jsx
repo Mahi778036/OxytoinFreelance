@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../Containers/Stepper/LinearStepper.module.css";
+import classes from "./InputContainer.module.css";
 
 export const InputContainer = (props) => {
   return (

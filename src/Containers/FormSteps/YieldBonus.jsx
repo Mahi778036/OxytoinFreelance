@@ -14,7 +14,7 @@ export const YieldBonus = ({ formik }) => {
   }, [formik.isSubmitting, formik.errors]);
 
   return (
-    <div>
+    <div className={classes.YieldBonusSection}>
       <div className={classes.MultiSelectDropdown}>
         <h2>Yield by traits</h2>
         <p>Select Trait(s)</p>
