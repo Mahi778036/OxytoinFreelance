@@ -7,6 +7,14 @@ body{
   font-family: var(--font--FuturaBook);
 }
 
+h2 {
+  color: #FFFFFF;
+  font-size: 28px;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+  margin: 20px 0;
+}
+
 @font-face {
   font-family: Punta;
   src: url(./Fonts/Punta.otf);

@@ -19,6 +19,14 @@
     width: 100%;
 }
 
+hr{
+    margin: 30px 0;
+    border-top: 0;
+    background-color:  #FF79E0;
+    height: 2px;
+    border-width: 0;
+}
+
 .halfWidth {
     width: 49%;
 }
@@ -39,6 +47,12 @@
 
 .normalBtn:hover {
     background: #EFD9DC;
+}
+
+.error {
+    color: red;
+    font-size: 18px;
+    margin: 5px 0px;
 }
 
 @media only screen and (max-width: 500px) {

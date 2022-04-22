@@ -1,8 +1,9 @@
 /** @format */
 import React, { useEffect } from "react";
-import { MuiDropdown } from "../../components/MuiDropdown";
+import { MuiDropdown } from '../../components/MuiAutocomplete/MuiDropdown';
 import classes from "../Stepper/LinearStepper.module.css";
-import { InputContainer } from "../../components/InputContainer";
+import { InputContainer } from "../../components/InputContainer/InputContainer";
+import { Dropdown } from "../../components/Dropdown/Dropdown";
 
 
 export const YieldBonus = ({ formik }) => {
@@ -24,15 +25,7 @@ export const YieldBonus = ({ formik }) => {
         <h2>Yield by token IDs</h2>
         <div className={classes.tokenContainer}>
           <InputContainer type='number' placeholder='10000' />
-          <InputContainer
-            type='text'
-            name='per'
-            value={formik.values.per}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            label='per'
-            placeholder='Day'
-          />
+          <Dropdown />
           <InputContainer
             type='number'
             name='tokenIds'

@@ -1,13 +1,11 @@
 /** @format */
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import { makeStyles } from "@mui/styles";
 import classes from "./MuiDropdown.module.css";
-import { InputContainer } from "./InputContainer";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import InputAdornment from '@mui/material/InputAdornment';
+import { InputContainer } from "../InputContainer/InputContainer";
+import { Dropdown } from "../Dropdown/Dropdown";
 
 
 export const MuiDropdown = () => {
@@ -92,18 +90,7 @@ export const MuiDropdown = () => {
               placeholder='1000'
               type='number'
             />
-            <InputContainer label='per' placeholder='Day' type='number' />
-            {/* <label>to be paid</label>
-            <input className={classes.input} type='number' placeholder='1000' />  */}
-             {/* <label>per</label>
-             <TextField placeholder="Day" className={classes.traitInput} InputProps={{
-              startAdornment: (
-            <InputAdornment position="end">
-              <ArrowDropDownIcon />
-            </InputAdornment> */}
-          {/* ),
-        }}
-      /> */}
+            <Dropdown />
         </div>
         );
       })}

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Header.module.css';
-import titleImg from '../assets/titleImg.png'
-import diamond from '../assets/diamond.png';
+import titleImg from '../../assets/titleImg.png'
+import diamond from '../../assets/diamond.png';
 
 export const Header = () => {
   return (

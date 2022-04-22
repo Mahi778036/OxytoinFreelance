@@ -13,4 +13,12 @@
     padding: 15px 5px;
     margin-left: 10px;
     display: inline;
+    width: 90px;
+}
+.ContainerInput:hover,.ContainerInput:focus,.ContainerInput:active{
+    outline: none;
+}
+.containerLabel{
+    color: #fff;
+    font-size: 18px;
 }

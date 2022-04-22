@@ -75,7 +75,6 @@ export const LinearStepper = () => {
       ERCsymbol: "",
     },
     {
-      per:"",
       Holds: "",
       HoldBonus: "",
       LockPeriod: "",
@@ -103,7 +102,6 @@ export const LinearStepper = () => {
       ERCtoken: Yup.number().required("Required"),
       ERCsymbol:Yup.number().required("Required")
     }),Yup.object({
-      per: Yup.string().required(),
       tokenIds: Yup.number().required("Required"),
       to:Yup.number().required("Required"),
       Holds: Yup.number().required("Required"),
