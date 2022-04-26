@@ -30,7 +30,6 @@ export const MuiDropdown = () => {
 
   const c = useStyles();
 
-  console.log(array, "arr");
 
   return (
     <div>
@@ -73,9 +72,6 @@ export const MuiDropdown = () => {
               getOptionLabel={(option) => option.name}
               defaultValue={[colors[0], colors[1]]}
               renderInput={(params) => {
-                console.log(params.InputProps.startAdornment);
-                let arr = params.InputProps.startAdornment;
-                console.log(arr, "arrr");
                 return (
                   <TextField
                     className={classes.traitInput}
@@ -90,7 +86,7 @@ export const MuiDropdown = () => {
               placeholder='1000'
               type='number'
             />
-            <Dropdown />
+            <Dropdown placeholder="Day" />
         </div>
         );
       })}

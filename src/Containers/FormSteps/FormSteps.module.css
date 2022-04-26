@@ -5,14 +5,22 @@
     border: 1px solid #8B0707;
     border-radius: 6px;
     outline: none;
-    color: #5A5A5A;
+    color: #000;
+    width: 90px;
+    padding: 5px;
+    height: 8vh;
 }
-.input:focus-visible,
-.input:active,
-.input:hover {
-    outline: none;
-    border: 1px solid #8B0707;
-    border-bottom: none;
+.input:active{
+    background: #EFD9DC;
+}
+label{
+  color: #fff;
+  font-size: 18px;
+}
+ 
+p{
+    font-size: 18px;
+    color: #fff;
 }
 
 .fullWidth {
@@ -53,6 +61,10 @@ hr{
     color: red;
     font-size: 18px;
     margin: 5px 0px;
+}
+
+.UnstakeConfig{
+    color: #fff;
 }
 
 @media only screen and (max-width: 500px) {

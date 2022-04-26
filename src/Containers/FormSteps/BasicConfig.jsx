@@ -1,26 +1,26 @@
 /** @format */
 import React from "react";
-import classes from './FormSteps.module.css';
-import { Button, TextField, Stack } from "@mui/material";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
+import classes from "./FormSteps.module.css";
+import { Button, InputBase } from "@mui/material";
+import fileUploadImg from "../../assets/fileUpload.svg";
 
 export const BasicConfig = ({ formik }) => {
   return (
     <div className={classes.basicSection}>
-      <TextField
+      <InputBase
         placeholder='Project Name'
         name='projectName'
         value={formik.values.projectName}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         type='text'
-        className={[classes.input, classes.fullWidth].join(" ")}></TextField>
+        className={[classes.input, classes.fullWidth].join(" ")}></InputBase>
       {formik.errors.projectName && formik.touched.projectName ? (
         <div className={classes.error}>{formik.errors.projectName}</div>
       ) : null}
       <div className={classes.flexContainer}>
         <Button
-          endIcon={<FileUploadIcon />}
+          endIcon={<img src={fileUploadImg} alt='fileuploadimg' />}
           className={[classes.input, classes.halfWidth, classes.normalBtn].join(
             " "
           )}
@@ -29,7 +29,7 @@ export const BasicConfig = ({ formik }) => {
           <input accept='image/png' type='file' hidden />
         </Button>
         <div className={classes.halfWidth}>
-          <TextField
+          <InputBase
             placeholder='URL Slug'
             type='text'
             name='url'
@@ -46,7 +46,7 @@ export const BasicConfig = ({ formik }) => {
       </div>
       <Button
         variant='contained'
-        endIcon={<FileUploadIcon />}
+        endIcon={<img src={fileUploadImg} alt='fileuploadimg' />}
         className={[
           classes.input,
           classes.fullWidth,
@@ -59,7 +59,7 @@ export const BasicConfig = ({ formik }) => {
       </Button>
       <div className={classes.flexContainer}>
         <div className={classes.halfWidth}>
-          <TextField
+          <InputBase
             placeholder='Primary Color'
             type='text'
             name='primaryColor'
@@ -73,7 +73,7 @@ export const BasicConfig = ({ formik }) => {
           ) : null}
         </div>
         <div className={classes.halfWidth}>
-          <TextField
+          <InputBase
             placeholder='
           Secondary Color'
             type='text'
@@ -89,8 +89,8 @@ export const BasicConfig = ({ formik }) => {
         </div>
       </div>
       <div className={classes.flexContainer}>
-        <div  className={classes.halfWidth}>
-          <TextField
+        <div className={classes.halfWidth}>
+          <InputBase
             placeholder='Tertiary Color'
             type='text'
             name='TertiaryColor'
@@ -104,7 +104,7 @@ export const BasicConfig = ({ formik }) => {
           ) : null}
         </div>
         <div className={classes.halfWidth}>
-          <TextField
+          <InputBase
             placeholder='
            Quaternary Color'
             type='text'
@@ -120,7 +120,7 @@ export const BasicConfig = ({ formik }) => {
         </div>
       </div>
       <hr></hr>
-      <TextField
+      <InputBase
         placeholder='Address of ERC-721 contract'
         type='text'
         name='address'
@@ -134,7 +134,7 @@ export const BasicConfig = ({ formik }) => {
       ) : null}
       <div className={classes.flexContainer}>
         <div className={classes.halfWidth}>
-          <TextField
+          <InputBase
             placeholder='Name of your ERC token'
             type='text'
             name='ERCtoken'
@@ -148,7 +148,7 @@ export const BasicConfig = ({ formik }) => {
           ) : null}
         </div>
         <div className={classes.halfWidth}>
-          <TextField
+          <InputBase
             placeholder='ERC Symbol'
             type='text'
             name='ERCsymbol'

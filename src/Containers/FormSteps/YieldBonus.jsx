@@ -25,7 +25,7 @@ export const YieldBonus = ({ formik }) => {
         <h2>Yield by token IDs</h2>
         <div className={classes.tokenContainer}>
           <InputContainer type='number' placeholder='10000' />
-          <Dropdown />
+          <Dropdown placeholder="Day" />
           <InputContainer
             type='number'
             name='tokenIds'
